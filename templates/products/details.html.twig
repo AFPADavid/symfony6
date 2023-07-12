@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de {{product.name}}{% endblock %}
+
+{% block body %}
+
+<main class="container">
+    <section class="row">
+        <div class="col-12">
+            <h1>{{product.name}}</h1>
+        </div>
+        <div class="col-6">
+            Images
+            {% for image in product.images %}
+                {# <pre> {{ dump(image) }} </pre> #}
+                <img src="{{ asset('assets/uploads/') ~ image.name  }}">
+            {% endfor %}
+        </div>
+        <div class="col-6">
+            <p>{{ product.description }}</p>
+            <p>Categorie : {{ product.categories.name }}</p>
+            <p>Prix : {{ product.price/100}} €</p>
+            <p>Stock : {{ product.stock}}</p>
+            {% if product.stock > 0 %}
+                <a href="#" class="btn btn-success">Ajouter au Panier</a>
+            {% else %}
+                <p class="text-danger">Produit actuellement indisponible !</p>
+            {% endif %}
+        </div>
+    </section>
+</main>
+{% endblock %}

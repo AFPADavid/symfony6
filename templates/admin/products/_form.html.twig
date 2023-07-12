@@ -1,0 +1,8 @@
+{{ form_start(formProduct)}}
+    {{ form_row(formProduct.name)}}
+    {{ form_row(formProduct.categories)}}
+    {{ form_row(formProduct.Description)}}
+    {{ form_row(formProduct.price)}}
+    {{ form_row(formProduct.stock)}}
+    <button type="submit" class="btn btn-primary">{{ button_label|default('Ajouter') }}</button>
+{{ form_end(formProduct)}}
